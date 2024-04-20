@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chocolate Store</title>
+<style>
+    /* CSS styles with improved color contrast */
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom right, #F5F5F5, #C0C0C0);
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #4B0082;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+    }
+    nav {
+        background-color: #663399;
+        text-align: center;
+        padding: 5px 0;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px;
+    }
+    #chocolates {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .chocolate {
+        background-color: #DDA0DD;
+        border: 1px solid #9400D3;
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        text-align: center;
+    }
+    button {
+        background-color: #9400D3;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    footer {
+        background-color: #4B0082;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+</style>
+</head>
+<body>
+<header>
+    <h1>Chocolate Store</h1>
+</header>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Cart</a>
+    <a href="#">Contact</a>
+</nav>
+<div id="chocolates">
+    <div class="chocolate">
+        <h2>Chocolate 1</h2>
+        <p>$5</p>
+        <button onclick="addToCart(5)">Add to Cart</button>
+    </div>
+    <div class="chocolate">
+        <h2>Chocolate 2</h2>
+        <p>$8</p>
+        <button onclick="addToCart(8)">Add to Cart</button>
+    </div>
+</div>
+<div id="cart">
+    <h2>Cart</h2>
+    <p>Total Items: <span id="totalItems">0</span></p>
+    <p>Total Price: $<span id="totalPrice">0</span></p>
+</div>
+<footer>
+    <p>&copy; 2021 Chocolate Store. All Rights Reserved.</p>
+</footer>
+<script>
+    let cart = {
+        totalItems: 0,
+        totalPrice: 0
+    };
+
+    function addToCart(price) {
+        cart.totalItems++;
+        cart.totalPrice += price;
+        document.getElementById("totalItems").innerText = cart.totalItems;
+        document.getElementById("totalPrice").innerText = cart.totalPrice;
+        alert("Chocolate added to cart.\nTotal Items: " + cart.totalItems + "\nTotal Price: $" + cart.totalPrice);
+    }
+</script>
+</body>
+</html>
